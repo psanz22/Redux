@@ -16,6 +16,8 @@ export default function RootLayout({
     <html lang="en">
       <body suppressHydrationWarning>
         <StoreProvider>{children}</StoreProvider>
+        {/* para que los componentes
+        dentro de children tengan acceso a la store */}
       </body>
     </html>
   );

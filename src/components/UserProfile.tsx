@@ -14,9 +14,17 @@ export default function UserProfile() {
   const [username, setUsernameLocal] = useState(user.username);
   const [mail, setMailLocal] = useState(user.mail);
 
+  // aquí utilizamos el usestate local para manejar los valores temporales de los inputs, pero una vez que el usuario le da al botón se dispara el dispatch para actualizar el estado global en Redux.
+  // básicamente estamos usando usestate local para capturar el valor del input y luego dispatch para persisitrlo en el estado global.
   const handleClick = () => {
     dispatch(setUser({ name, username, mail }));
   };
+
+  // ¿CUÁNDO UTILIZAMOS DISPATCH Y CUÁNDO USESTATE LOCAL?
+  // useState local se utiliza cuando el estado solo importa en este componente. por ejemplo, un input controlado temporal, animaciones, mostrar/ocultar modal...
+  // no lo necesitas en Redux si nadie más va a necesitar ese valor. Es rápido y simple.
+  // dispatch se utiliza cuando el estado debe ser global, compartido entre múltiples componentes, o persistido. Por ejemplo, datos de usuario, configuración de la app, carrito de compras...
+  // Redux es más complejo pero necesario para estados que afectan a toda la app.
 
   return (
     <div className="flex flex-col justify-start items-left gap-4 max-w-md mx-autoshadow-md rounded-md bg-fuchsia-400 ">
@@ -35,6 +43,7 @@ export default function UserProfile() {
       <input
         type="text"
         value={name}
+        // capturamos temporalmente el valor del input en el estado local
         onChange={(e) => setNameLocal(e.target.value)}
         className="bg-lime-200 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 hover:text-purple-700"
       />
