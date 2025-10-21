@@ -14,7 +14,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body suppressHydrationWarning>
+      <body
+        suppressHydrationWarning
+        className="w-screen min-h-screen overlow-x-hidden"
+      >
         <StoreProvider>{children}</StoreProvider>
         {/* para que los componentes
         dentro de children tengan acceso a la store */}

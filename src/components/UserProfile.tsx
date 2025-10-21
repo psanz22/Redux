@@ -27,8 +27,10 @@ export default function UserProfile() {
   // Redux es más complejo pero necesario para estados que afectan a toda la app.
 
   return (
-    <div className="flex flex-col justify-start items-left gap-4 max-w-md mx-autoshadow-md rounded-md bg-fuchsia-400 ">
-      <h2 className="text-2xl font-bold text-purple-900">User Profile</h2>
+    <div className=" flex flex-col justify-start items-left gap-4 max-w-md mx-autoshadow-md rounded-b-3xl bg-fuchsia-400 p-10 md:p-4 ">
+      <h2 className="text-5xl font-bold text-lime-200 text-center font-mono md:text-3xl ">
+        User Profile
+      </h2>
       <div className="w-40 h-40 rounded-full overflow-hidden mx-auto flex items-center justify-center">
         <Image
           src="/jinx.jpeg"
@@ -39,34 +41,36 @@ export default function UserProfile() {
         />
       </div>
 
-      <legend className="text-purple-900">Name</legend>
+      <legend className="text-purple-900 font-mono">Name</legend>
       <input
         type="text"
         value={name}
         // capturamos temporalmente el valor del input en el estado local
         onChange={(e) => setNameLocal(e.target.value)}
-        className="bg-lime-200 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 hover:text-purple-700"
+        className="bg-lime-200 font-mono px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 hover:text-purple-700"
       />
-      <legend className="text-purple-900">Username</legend>
+      <legend className="text-purple-900 font-mono">Username</legend>
       <input
         type="text"
         value={username}
         onChange={(e) => setUsernameLocal(e.target.value)}
-        className="bg-lime-300 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 hover:text-purple-700"
+        className="bg-lime-300 font-mono px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 hover:text-purple-700"
       />
-      <legend className="text-purple-900">Mail</legend>
+      <legend className="text-purple-900 font-mono">Mail</legend>
       <input
         type="text"
         value={mail}
         onChange={(e) => setMailLocal(e.target.value)}
-        className="bg-lime-400 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500   hover:text-purple-700"
+        className="bg-lime-400 font-mono px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500   hover:text-purple-700"
       />
-      <button
-        onClick={handleClick}
-        className="hover:bg-purple-500 bg bg-lime-500 border rounded-2xl border-pink-700 text-pink-700 hover:text-white text-2xl font-bold transition-colors w-60 h-20"
-      >
-        Save Changes
-      </button>
+      <div className="flex justify-center mt-6">
+        <button
+          onClick={handleClick}
+          className=" cursor-pointer font-mono hover:bg-purple-500 bg bg-lime-500 border rounded-2xl border-pink-700 text-pink-700 hover:text-white text-2xl font-bold transition-colors w-60 h-20"
+        >
+          Save Changes
+        </button>
+      </div>
     </div>
   );
 }
