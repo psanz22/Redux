@@ -5,6 +5,9 @@ interface UserState {
   name: string;
   username: string;
   mail: string;
+  memberSince: string;
+  murders: number;
+  craziness: number;
 }
 // Por cada slice que tengas, creas un archivo de Slice similar a este. 1 archivo = 1 slice
 
@@ -13,6 +16,9 @@ const initialState: UserState = {
   name: "",
   username: "",
   mail: "",
+  memberSince: new Date().toLocaleDateString(),
+  murders: 666,
+  craziness: 99,
 };
 
 export const userSlice = createSlice({
@@ -31,6 +37,12 @@ export const userSlice = createSlice({
     },
     setUser: (state, action: PayloadAction<UserState>) => {
         return action.payload; //aquí devuelves un nuevo estado completo
+  },
+  setMurders: (state, action: PayloadAction<number>) => {
+    state.murders = action.payload;
+  },
+  setCraziness: (state, action: PayloadAction<number>) => {
+    state.craziness = action.payload;
   },
 },
 });

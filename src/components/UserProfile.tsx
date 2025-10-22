@@ -17,7 +17,7 @@ export default function UserProfile() {
   // aquí utilizamos el usestate local para manejar los valores temporales de los inputs, pero una vez que el usuario le da al botón se dispara el dispatch para actualizar el estado global en Redux.
   // básicamente estamos usando usestate local para capturar el valor del input y luego dispatch para persisitrlo en el estado global.
   const handleClick = () => {
-    dispatch(setUser({ name, username, mail }));
+    dispatch(setUser({ ...user, name, username, mail })); // con ..user conservo los valores que no quiero modificar
   };
 
   // ¿CUÁNDO UTILIZAMOS DISPATCH Y CUÁNDO USESTATE LOCAL?
